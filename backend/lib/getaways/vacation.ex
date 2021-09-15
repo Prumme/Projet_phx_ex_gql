@@ -47,8 +47,11 @@ defmodule Getaways.Vacation do
       {:order, order}, query ->
         from p in query, order_by: [{^order, :id}]
     end)
+    |> IO.inspect
     |> Repo.all
   end
+
+  
 
   defp filter_with(filters, query) do
     Enum.reduce(filters, query, fn
